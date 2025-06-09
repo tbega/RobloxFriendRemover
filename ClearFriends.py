@@ -22,7 +22,6 @@ CSRF_TOKEN = None
 
 def get_csrf_token():
     global CSRF_TOKEN
-    # Make a dummy POST to get the token
     resp = requests.post("https://friends.roblox.com/v1/users/1/unfriend", headers=HEADERS)
     token = resp.headers.get("x-csrf-token")
     if token:
